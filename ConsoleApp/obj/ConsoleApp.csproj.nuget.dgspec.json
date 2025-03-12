@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/user/Desktop/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj": {}
+    "/Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj": {}
   },
   "projects": {
-    "/Users/user/Desktop/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj": {
+    "/Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/user/Desktop/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj",
+        "projectUniqueName": "/Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "/Users/user/Desktop/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj",
+        "projectPath": "/Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/ConsoleApp.csproj",
         "packagesPath": "/Users/user/.nuget/packages/",
-        "outputPath": "/Users/user/Desktop/MestreGafanhoto/ConsoleApp/obj/",
+        "outputPath": "/Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/user/.nuget/NuGet/NuGet.Config"
