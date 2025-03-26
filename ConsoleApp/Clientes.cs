@@ -1,22 +1,8 @@
-using System.Dynamic;
+Clientes cliente1 = new Clientes();
+cliente1.Nome = "João";
+cliente1.Sobrenome = "";
+cliente1.Documento = "123456789";
+cliente1.Nascimento = new DateOnly(1998, 1, 1);
 
-class Clientes
-{
-    public string? Nome { get; set; }
-    public string? Sobrenome { get; set; }
-    public string? Documento { get; set; }
-    public DateOnly Nascimento { get; set; }
-
-    private DateOnly DataAtual => DateOnly.FromDateTime(DateTime.Now);
-
-    public int Idade => DataAtual.Year - Nascimento.Year - (DataAtual.DayOfYear < Nascimento.DayOfYear ? 1 : 0);
-
-    public void ExibirCliente()
-    {
-        Console.WriteLine($"Nome: {Nome}");
-        Console.WriteLine($"Sobrenome: {Sobrenome}");
-        Console.WriteLine($"Documento: {Documento}");
-        Console.WriteLine($"Nascimento: {Nascimento}");
-        Console.WriteLine($"Idade: {Idade}");
-    }
-}
+Console.WriteLine("Cliente 1:\n");
+cliente1.ExibirCliente();

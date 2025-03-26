@@ -55,3 +55,4 @@
 /Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/obj/Debug/net9.0/ConsoleApp.pdb
 /Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/obj/Debug/net9.0/ConsoleApp.genruntimeconfig.cache
 /Users/user/Documents/Teste/MestreGafanhoto/ConsoleApp/obj/Debug/net9.0/ref/ConsoleApp.dll
+/Users/user/Documents/MestreGafanhoto/ConsoleApp/obj/Debug/net9.0/ConsoleApp.sourcelink.json
