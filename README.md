@@ -29,7 +29,7 @@ Este projeto é um sistema de cadastro de clientes desenvolvido em C# para armaz
 
 1.  Execute o projeto: `dotnet run`
 2.  Acesse a interface do sistema através do navegador em `http://localhost:5000`.
-3.  Utilize as funcionalidades de cadastro, listagem, busca, edição e exclusão de clientes.
+3.  Utilize as funcionalidades de cadastro, listagem, edição e exclusão de clientes.
 
 ## Contribuição
 
@@ -45,4 +45,4 @@ Este projeto é distribuído sob a licença [MIT](https://opensource.org/license
 
 ## Autor
 
-[Seu Nome](https://github.com/JuniorErnesto)
+[Ernesto Junior](https://github.com/JuniorErnesto)
