@@ -4,9 +4,8 @@ Este projeto é um sistema de cadastro de clientes desenvolvido em C# para armaz
 
 ## Funcionalidades
 
-* Cadastro de clientes com nome, endereço, telefone, e-mail e CPF.
+* Cadastro de clientes com nome, sobrenome, documento, data de nascimento e idade (de acordo com a data informada.)
 * Listagem de clientes cadastrados.
-* Busca de clientes por nome ou CPF.
 * Edição de informações de clientes existentes.
 * Exclusão de clientes cadastrados.
 
@@ -14,7 +13,7 @@ Este projeto é um sistema de cadastro de clientes desenvolvido em C# para armaz
 
 * [.NET SDK 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * [Entity Framework Core](https://docs.microsoft.com/pt-br/ef/core/)
-* [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) (ou outro banco de dados de sua preferência)
+* [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
 
 ## Instalação
 
