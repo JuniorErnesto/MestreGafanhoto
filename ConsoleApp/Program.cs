@@ -4,7 +4,7 @@ List<string> listaDeNomesClientes = new List<string>() { "João", "Maria", "Jos�
 List<string> listaDeSobrenomesClientes = new List<string>() { "Silva", "Santos", "Oliveira" };
 List<string> listaDeDocumentosClientes = new List<string>() { "123.456.789-00", "987.654.321-00", "456.789.123-00" };
 List<DateOnly> listaDeNascimentosClientes = new List<DateOnly>() { DateOnly.Parse("01/01/2000"), DateOnly.Parse("02/02/2001"), DateOnly.Parse("03/03/2002") };
-List<string> listaDeIdadesClientes = new List<string>();
+List<int> listaDeIdadesClientes = new List<int>();
 
 void ExibirSaudacao()
 {
@@ -59,6 +59,16 @@ void RegistrarClientes()
     string dataNascimento = Console.ReadLine()!;
     listaDeNascimentosClientes.Add(DateOnly.Parse(dataNascimento));
     DateOnly nascimento = DateOnly.Parse(dataNascimento);
+
+        DateOnly dataAtual = DateOnly.FromDateTime(DateTime.Now);
+        int idade = dataAtual.Year - nascimento.Year;
+        if (dataAtual.Month < nascimento.Month || (dataAtual.Month == nascimento.Month && dataAtual.Day < nascimento.Day))
+        {
+            idade--;
+        }
+
+        listaDeIdadesClientes.Add(idade);
+
     Console.WriteLine($"Cliente {nome} {sobrenome} cadastrado com sucesso!\n");
     Thread.Sleep(4000);
     ExibirMenuPrincipal();
@@ -74,36 +84,12 @@ void ListarClientesCadastrados()
         Console.WriteLine($"Sobrenome: {listaDeSobrenomesClientes[i]}");
         Console.WriteLine($"Documento: {listaDeDocumentosClientes[i]}");
         Console.WriteLine($"Nascimento: {listaDeNascimentosClientes[i]}\n");
-        // Console.WriteLine($"Idade: {listaDeIdadesClientes[i]}\n");
-    }
+        Console.WriteLine($"Idade: {listaDeIdadesClientes[i]}\n");
     
-    Thread.Sleep(5000);
-    Console.Clear();
-    ExibirMenuPrincipal();
-}
-
-void ExcluirCliente()
-{
-    Console.Clear();
-    Console.WriteLine("Excluir Cliente\n");
-    Console.WriteLine("Digite o nome do cliente que deseja excluir: ");
-    string nome = Console.ReadLine()!;
-    int indiceCliente = listaDeNomesClientes.IndexOf(nome);
-    if (indiceCliente == -1)
-    {
-        Console.WriteLine($"Cliente {nome} não encontrado!");
+        Thread.Sleep(5000);
+        Console.Clear();
+        ExibirMenuPrincipal();
     }
-    else
-    {
-        listaDeNomesClientes.RemoveAt(indiceCliente);
-        listaDeSobrenomesClientes.RemoveAt(indiceCliente);
-        listaDeDocumentosClientes.RemoveAt(indiceCliente);
-        listaDeNascimentosClientes.RemoveAt(indiceCliente);
-        // listaDeIdadesClientes.RemoveAt(indiceCliente);
-        Console.WriteLine($"Cliente {nome} excluído com sucesso!\n");
-    }
-    Thread.Sleep(4000);
-    ExibirMenuPrincipal();
 }
 
 void EditarCliente()
@@ -137,26 +123,28 @@ void EditarCliente()
     ExibirMenuPrincipal();
 }
 
+void ExcluirCliente()
+{
+    Console.Clear();
+    Console.WriteLine("Excluir Cliente\n");
+    Console.WriteLine("Digite o nome do cliente que deseja excluir: ");
+    string nome = Console.ReadLine()!;
+    int indiceCliente = listaDeNomesClientes.IndexOf(nome);
+    if (indiceCliente == -1)
+    {
+        Console.WriteLine($"Cliente {nome} não encontrado!");
+    }
+    else
+    {
+        listaDeNomesClientes.RemoveAt(indiceCliente);
+        listaDeSobrenomesClientes.RemoveAt(indiceCliente);
+        listaDeDocumentosClientes.RemoveAt(indiceCliente);
+        listaDeNascimentosClientes.RemoveAt(indiceCliente);
+        listaDeIdadesClientes.RemoveAt(indiceCliente);
+        Console.WriteLine($"Cliente {nome} excluído com sucesso!\n");
+    }
+    Thread.Sleep(4000);
+    ExibirMenuPrincipal();
+}
+
 ExibirMenuPrincipal();
-
-
-
-
-// class Clientes
-// {
-//     public string? Nome { get; set; }
-//     public string? Sobrenome { get; set; }
-//     public string? Documento { get; set; }
-//     public DateOnly Nascimento { get; set; }
-//     private DateOnly DataAtual => DateOnly.FromDateTime(DateTime.Now);
-//     public int Idade => DataAtual.Year - Nascimento.Year - (DataAtual.DayOfYear < Nascimento.DayOfYear ? 1 : 0);
-
-//     public void ExibirCliente()
-//     {
-//         Console.WriteLine($"Nome: {Nome}");
-//         Console.WriteLine($"Sobrenome: {Sobrenome}");
-//         Console.WriteLine($"Documento: {Documento}");
-//         Console.WriteLine($"Nascimento: {Nascimento}");
-//         Console.WriteLine($"Idade: {Idade}");
-//     }
-// }
