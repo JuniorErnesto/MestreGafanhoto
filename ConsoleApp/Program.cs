@@ -1,10 +1,12 @@
-﻿using System.Collections.Specialized;
-using System.Dynamic;
+﻿// using System.Collections.Specialized;
+// using System.Dynamic;
+using System.Security.Cryptography.X509Certificates;
+
 List<string> listaDeNomesClientes = new List<string>() { "João", "Maria", "José" };
 List<string> listaDeSobrenomesClientes = new List<string>() { "Silva", "Santos", "Oliveira" };
 List<string> listaDeDocumentosClientes = new List<string>() { "123.456.789-00", "987.654.321-00", "456.789.123-00" };
 List<DateOnly> listaDeNascimentosClientes = new List<DateOnly>() { DateOnly.Parse("01/01/2000"), DateOnly.Parse("02/02/2001"), DateOnly.Parse("03/03/2002") };
-List<int> listaDeIdadesClientes = new List<int>();
+List<int> listaDeIdadesClientes = new List<int>() { 25, 24, 23 };
 
 void ExibirSaudacao()
 {
@@ -60,16 +62,16 @@ void RegistrarClientes()
     listaDeNascimentosClientes.Add(DateOnly.Parse(dataNascimento));
     DateOnly nascimento = DateOnly.Parse(dataNascimento);
 
-        DateOnly dataAtual = DateOnly.FromDateTime(DateTime.Now);
-        int idade = dataAtual.Year - nascimento.Year;
-        if (dataAtual.Month < nascimento.Month || (dataAtual.Month == nascimento.Month && dataAtual.Day < nascimento.Day))
-        {
-            idade--;
-        }
+    DateOnly hoje = DateOnly.FromDateTime(DateTime.Now);
+    int idade = hoje.Year - nascimento.Year;
+    if (hoje.Month < nascimento.Month || (hoje.Month == nascimento.Month && hoje.Day < nascimento.Day))
+    {
+        idade--;
+    }
 
-        listaDeIdadesClientes.Add(idade);
+    listaDeIdadesClientes.Add(idade);
 
-    Console.WriteLine($"Cliente {nome} {sobrenome} cadastrado com sucesso!\n");
+    Console.WriteLine($"Cliente {nome} {sobrenome}, documento {documento}, nascido em {dataNascimento} e {idade} anos, cadastrado com sucesso!\n");
     Thread.Sleep(4000);
     ExibirMenuPrincipal();
 }
@@ -80,16 +82,16 @@ void ListarClientesCadastrados()
     Console.WriteLine("Lista de Clientes Cadastrados\n");
     for (int i = 0; i < listaDeNomesClientes.Count; i++)
     {
+        Console.WriteLine($"Cliente {i + 1}: ");
         Console.WriteLine($"Nome: {listaDeNomesClientes[i]}");
         Console.WriteLine($"Sobrenome: {listaDeSobrenomesClientes[i]}");
         Console.WriteLine($"Documento: {listaDeDocumentosClientes[i]}");
-        Console.WriteLine($"Nascimento: {listaDeNascimentosClientes[i]}\n");
+        Console.WriteLine($"Nascimento: {listaDeNascimentosClientes[i]}");
         Console.WriteLine($"Idade: {listaDeIdadesClientes[i]}\n");
-    
-        Thread.Sleep(5000);
-        Console.Clear();
-        ExibirMenuPrincipal();
     }
+
+    Thread.Sleep(5000);
+    ExibirMenuPrincipal();
 }
 
 void EditarCliente()
@@ -117,10 +119,23 @@ void EditarCliente()
         Console.WriteLine("Digite a nova data de nascimento do cliente (dd/mm/aaaa): ");
         string novaDataNascimento = Console.ReadLine()!;
         listaDeNascimentosClientes[indiceCliente] = DateOnly.Parse(novaDataNascimento);
+
+        DateOnly novaNascimento = DateOnly.Parse(novaDataNascimento);
+        listaDeNascimentosClientes[indiceCliente] = novaNascimento;
+        
+        DateOnly hoje = DateOnly.FromDateTime(DateTime.Now);
+        int novaIdade = hoje.Year - novaNascimento.Year;
+        if (hoje.Month < novaNascimento.Month || (hoje.Month == novaNascimento.Month && hoje.Day < novaNascimento.Day))
+        {
+            novaIdade--;
+        }
+        listaDeIdadesClientes[indiceCliente] = novaIdade;
+
         Console.WriteLine($"Cliente {nome} editado com sucesso!\n");
+
+        Thread.Sleep(4000);
+        ExibirMenuPrincipal();
     }
-    Thread.Sleep(4000);
-    ExibirMenuPrincipal();
 }
 
 void ExcluirCliente()
