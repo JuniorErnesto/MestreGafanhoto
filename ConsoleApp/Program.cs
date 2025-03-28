@@ -1,5 +1,5 @@
-﻿// using System.Collections.Specialized;
-// using System.Dynamic;
+﻿using System.Collections.Specialized;
+using System.Dynamic;
 using System.Security.Cryptography.X509Certificates;
 
 List<string> listaDeNomesClientes = new List<string>() { "João", "Maria", "José" };
@@ -122,7 +122,7 @@ void EditarCliente()
 
         DateOnly novaNascimento = DateOnly.Parse(novaDataNascimento);
         listaDeNascimentosClientes[indiceCliente] = novaNascimento;
-        
+
         DateOnly hoje = DateOnly.FromDateTime(DateTime.Now);
         int novaIdade = hoje.Year - novaNascimento.Year;
         if (hoje.Month < novaNascimento.Month || (hoje.Month == novaNascimento.Month && hoje.Day < novaNascimento.Day))
